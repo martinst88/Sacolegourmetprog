@@ -8,7 +8,7 @@ struct ARFsSacolesGourmetApp: App {
 
     init() {
         do {
-            configureAppearance()
+            Self.configureAppearance()
             let schema = Schema([
                 Flavor.self,
                 SupplyItem.self,
@@ -31,7 +31,7 @@ struct ARFsSacolesGourmetApp: App {
         }
     }
 
-    private func configureAppearance() {
+    private static func configureAppearance() {
         let navAppearance = UINavigationBarAppearance()
         navAppearance.configureWithOpaqueBackground()
         navAppearance.backgroundColor = UIColor(red: 0.97, green: 0.95, blue: 0.92, alpha: 1)
