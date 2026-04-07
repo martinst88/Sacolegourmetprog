@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
@@ -24,13 +24,22 @@ jobs:
       - name: List schemes
         run: xcodebuild -list -project ARFsSacolesGourmet.xcodeproj
 
-      - name: Build for iOS Simulator
+      - name: Show simulator destinations
+        run: |
+          xcodebuild \
+            -project ARFsSacolesGourmet.xcodeproj \
+            -scheme ARFsSacolesGourmet \
+            -showdestinations
+
+      - name: Build for generic iOS Simulator
         run: |
           xcodebuild \
             -project ARFsSacolesGourmet.xcodeproj \
             -scheme ARFsSacolesGourmet \
             -configuration Debug \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
             build
 
