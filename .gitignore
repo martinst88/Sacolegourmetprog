@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+
+build/
+DerivedData/
+*.ipa
+*.xcarchive
+*.xcresult
+
+xcuserdata/
+*.xcuserstate
+
+.idea/
+.vscode/
+__pycache__/
+*.pyc
